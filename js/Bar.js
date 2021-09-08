@@ -25,8 +25,8 @@ class Bar{
     comprobarLimitesBarra(){
         if(this.y < 0){
             this.y = 0;
-        }else if(this.y > 300){
-            this.y = 300;
+        }else if(this.y > (this.board.height - this.height)){
+            this.y = (this.board.height - this.height);
         }
     }
 
