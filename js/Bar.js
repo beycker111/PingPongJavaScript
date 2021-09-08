@@ -14,10 +14,20 @@ class Bar{
 
     down() {
         this.y += this.speed;
+        this.comprobarLimitesBarra();
     }
 
     up() {
         this.y -= this.speed;
+        this.comprobarLimitesBarra();
+    }
+
+    comprobarLimitesBarra(){
+        if(this.y < 0){
+            this.y = 0;
+        }else if(this.y > 300){
+            this.y = 300;
+        }
     }
 
     toString(){

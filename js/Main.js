@@ -30,7 +30,7 @@ document.addEventListener("keydown", function (ev) {
         board.playing = !board.playing;
     }
 
-    console.log(bar_2.toString());
+    console.log(bar.toString());
 });
 //window.addEventListener("load", main);
 board_view.drawAll();
