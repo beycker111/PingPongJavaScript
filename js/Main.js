@@ -4,9 +4,9 @@ import Bar from "./Bar.js";
 import Ball from "./Ball.js";
 
 var board = new Board(800, 400);
-var bar = new Bar(20, 100, 40, 100, board);
-var bar_2 = new Bar(735, 100, 40, 100, board);
+var bar = new Bar(735, 100, 40, 100, board);
 var canvas = document.getElementById('canvas');
+var bar_2 = new Bar(20, 100, 40, 100, board);
 var board_view = new BoardView(canvas, board);
 var ball = new Ball(300, 100, 10, board);
 
@@ -32,6 +32,14 @@ document.addEventListener("keydown", function (ev) {
 
     console.log(bar.toString());
 });
+
+document.getElementById('instrucciones').onsubmit = function() { 
+    alert("Para iniciar o pausar el juego presione la barra espaciadora\n"
+        + "Utilice las teclas W y S para subir o bajar la barra del jugador del lado izquierdo del tablero.\n"
+        + "Utilice las teclas ↑ y ↓ para subir o bajar la barra del jugador del lado derecho del tablero.\n"
+        + "El jugador que logre pasar la pelota del lado opuesto del tablero acierta un punto.\n\n"
+        + "Gana el jugador que acierte 5 puntos en total.");
+}
 //window.addEventListener("load", main);
 board_view.drawAll();
 
