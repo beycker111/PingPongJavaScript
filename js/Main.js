@@ -34,20 +34,25 @@ document.addEventListener("keydown", function (ev) {
 });
 
 document.getElementById('instrucciones').onsubmit = function() { 
+    //console.log(document.getElementById("puntajeizq").innerHTML);
+    //document.getElementById("puntajeizq").innerHTML = 1;
     alert("Para iniciar o pausar el juego presione la barra espaciadora\n"
         + "Utilice las teclas W y S para subir o bajar la barra del jugador del lado izquierdo del tablero.\n"
         + "Utilice las teclas ↑ y ↓ para subir o bajar la barra del jugador del lado derecho del tablero.\n"
         + "El jugador que logre pasar la pelota del lado opuesto del tablero acierta un punto.\n\n"
         + "Gana el jugador que acierte 5 puntos en total.");
+    return false;
+    
 }
 //window.addEventListener("load", main);
 board_view.drawAll();
 
 window.requestAnimationFrame(controller);
+/*
 setTimeout(function () {
     ball.direction = -1;
 }, 4000)
-
+*/
 function controller(){
     
     board_view.play();

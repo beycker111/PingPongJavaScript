@@ -43,6 +43,7 @@ class BoardView{
             this.clean();
             this.drawAll();
             this.check_collisions();
+            this.check_point();
             this.board.ball.move();
         }
         
@@ -57,6 +58,44 @@ class BoardView{
                 this.board.ball.checkCollisionUpDown();
             }
         }
+    }
+
+    check_point(){
+        if(this.board.ball.x < 0){
+            this.board.score[0] += 1;
+            document.getElementById("puntajeder").innerHTML = this.board.score[0];
+            alert("Punto para el jugador de la derecha");
+            if(!this.win(this.board.score)){
+                this.board.ball.x = 300;
+                this.board.ball.y = 100;
+                this.play();
+            }
+            
+        }else if(this.board.ball.x > this.board.width){
+            this.board.score[1] += 1;
+            document.getElementById("puntajeizq").innerHTML = this.board.score[1];
+            alert("Punto para el jugador de la izquierda");
+            if(!this.win(this.board.score)){
+                this.board.ball.x = 300;
+                this.board.ball.y = 100;
+                this.play();
+            }
+        }
+    }
+
+    win(score){
+        let result = false;
+        if(score[0] === 5){
+            result = true;
+            alert("Gana el jugador de la izquierda");
+            this.board.playing = false;
+        }else if(score[1] === 5){
+            result = true;
+            alert("Gana el jugador de la derecha");
+            this.board.playing = false;
+        }
+        
+        return result;
     }
 
     hit(a, b){

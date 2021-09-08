@@ -6,6 +6,7 @@ class Board {
         this.game_over = false;
         this.bars = [];
         this.ball = null;
+        this.score = [0,0];
     }
 
     get elements(){

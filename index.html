@@ -7,13 +7,28 @@
     <title>Juego Ping Pong</title>
     <style>
         canvas{border: solid;}
+        table, th, td {
+            border:1px solid black;
+        }
     </style>
 </head>
 <body>
     <h1 align="center">Ping pong por Beycker</h1>
     <div align="center">
+        <table style="border: solid;">
+            <tr>
+                <th>Puntaje jugador izquierda</th>
+                <th>Puntaje jugador derecha</th>
+            </tr>
+            <tr>
+                <td align="center" id="puntajeizq">0</td>
+                <td align="center" id="puntajeder">0</td>
+            </tr>
+        </table>
+        <br>
         <canvas id="canvas"></canvas><br><br>
         <form id="instrucciones"><input type="submit" value="Instrucciones" id="instruccionesButton" /></form>
+        
     </div>    
     <script type="module" src="js/main.js"></script>
     <script type="module" src="js/Board.js"></script>
