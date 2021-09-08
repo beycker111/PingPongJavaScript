@@ -44,6 +44,15 @@ class Ball {
         if(this.x > (this.board.width / 2)) this.direction = -1;
         else this.direction = 1;
     }
+
+    checkCollisionUpDown() {
+        if (
+          this.y + this.speed_y > this.board.height - this.radius ||
+          this.y + this.speed_y < this.radius
+        ) {
+          this.speed_y = -this.speed_y;
+        }
+      }
 }
 
 export default Ball;

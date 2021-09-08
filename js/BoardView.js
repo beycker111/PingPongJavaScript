@@ -53,6 +53,8 @@ class BoardView{
             var bar = this.board.bars[i]
             if(this.hit(bar, this.board.ball)){
                 this.board.ball.collision(bar);
+            }else {
+                this.board.ball.checkCollisionUpDown();
             }
         }
     }
