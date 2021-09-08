@@ -9,6 +9,9 @@ class Board {
         this.score = [0,0];
     }
 
+    /**
+     * Obtiene los elementos del tablero (Las barras y la pelota)
+     */
     get elements(){
         var elements = this.bars.map(function (bar) {
             return bar;

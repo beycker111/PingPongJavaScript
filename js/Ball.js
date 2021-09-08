@@ -17,6 +17,9 @@ class Ball {
 
     }
 
+    /**
+     * Cambia las cordenadas en x y y de la pelota para que esta se mueva
+     */
     move(){
         this.x += (this.speed_x * this.direction);
         this.y += (this.speed_y);
@@ -30,6 +33,10 @@ class Ball {
         return this.radius*2;
     }
 
+    /**
+     * Realiza una operación mátematica para darle la dirección a la pelota de acuerdo al punto exacto donde colisiona con la barra
+     * @param {*} bar Barra con la que colisiona la pelota
+     */
     collision(bar){
         //Reacciona a la colisión con una barra que recibe como parametro
         var relative_intersect_y = ( bar.y + (bar.height / 2) ) - this.y;
@@ -45,6 +52,9 @@ class Ball {
         else this.direction = 1;
     }
 
+    /**
+     * Permite que la pelota rebote al tocar los bordes superior e inferior del tablero
+     */
     checkCollisionUpDown() {
         if (
           this.y + this.speed_y > this.board.height - this.radius ||

@@ -7,21 +7,29 @@ class BoardView{
         this.ctx = canvas.getContext("2d");
     }
 
+    /**
+     * Borra el rectangulo que estaba prevuamente dibujado por canvas
+     */
     clean(){
         this.ctx.clearRect(0, 0, this.board.width, this.board.height);
     }
 
+    /**
+     * Recorre cada elemento del tablero para posteriormente pintarlos a través del método draw()
+     */
     drawAll(){
-        //console.log(this.board.elements.length);
         for(var i = this.board.elements.length - 1; i>=0; i--){
-            //console.log(this.board.elements[i]);
             var el = this.board.elements[i];
             this.draw(this.ctx, el);
         }
     }
 
+    /**
+     * Pinta en el canvas un elemento
+     * @param {*} ctx Parametro indispensable para poder pintar con canvas un elemento
+     * @param {*} element Element del arreglo de elementos del tablero que se va a pintar en el canvas
+     */
     draw(ctx, element){
-        //Este if me pone problema de momento
         //if(element !== null && element.hasOwnProperty("kind")){
             switch(element.kind){
                 case "rectangle":
@@ -38,6 +46,9 @@ class BoardView{
         
     }
 
+    /**
+     * Permite ejecutar todos los métodos de la lógica y el funcionamiento del juego
+     */
     play(){
         if(this.board.playing){
             this.clean();
@@ -49,6 +60,9 @@ class BoardView{
         
     }
 
+    /**
+     * Checkea si la pelota colisiona con las barras o con el borde superior e inferior del tablero
+     */
     check_collisions(){
         for (var i = this.board.bars.length - 1; i >= 0; i--) {
             var bar = this.board.bars[i]
@@ -60,6 +74,9 @@ class BoardView{
         }
     }
 
+    /**
+     * Verifica si la pelota excede los border derecha e izquierda del tablero para asignarle el punto al jugador respectivo
+     */
     check_point(){
         if(this.board.ball.x < 0){
             this.board.score[0] += 1;
@@ -83,6 +100,11 @@ class BoardView{
         }
     }
 
+    /**
+     * Verifica si se cumplen las condiciones para declarar a un jugador como ganador
+     * @param {*} score Parametro que contiene un arreglo con el puntaje de los dos jugadores
+     * @returns 
+     */
     win(score){
         let result = false;
         if(score[0] === 5){
@@ -98,6 +120,12 @@ class BoardView{
         return result;
     }
 
+    /**
+     * Verifica si una barra colisiona con la pelota
+     * @param {*} a Elemento barra
+     * @param {*} b Elemento pelota
+     * @returns 
+     */
     hit(a, b){
         //Revisa si a colisiona con b
         var hit = false;

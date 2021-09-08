@@ -12,16 +12,25 @@ class Bar{
         this.speed = 10;
     }
 
+    /**
+     * Cambia la cordenada en y de la barra para moverla hacia abajo
+     */
     down() {
         this.y += this.speed;
         this.comprobarLimitesBarra();
     }
 
+    /**
+     * Cambia la cordenada en y de la barra para moverla hacia arriba
+     */
     up() {
         this.y -= this.speed;
         this.comprobarLimitesBarra();
     }
 
+    /**
+     * Comprueba la posición actual de la barra para que esta no exceda los limiites superior e inferior del tablero
+     */
     comprobarLimitesBarra(){
         if(this.y < 0){
             this.y = 0;

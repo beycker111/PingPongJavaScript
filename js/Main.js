@@ -33,9 +33,10 @@ document.addEventListener("keydown", function (ev) {
     console.log(bar.toString());
 });
 
+/**
+ * Muestra las instrucciones del juego mediante un alert
+ */
 document.getElementById('instrucciones').onsubmit = function() { 
-    //console.log(document.getElementById("puntajeizq").innerHTML);
-    //document.getElementById("puntajeizq").innerHTML = 1;
     alert("Para iniciar o pausar el juego presione la barra espaciadora\n"
         + "Utilice las teclas W y S para subir o bajar la barra del jugador del lado izquierdo del tablero.\n"
         + "Utilice las teclas ↑ y ↓ para subir o bajar la barra del jugador del lado derecho del tablero.\n"
@@ -44,15 +45,10 @@ document.getElementById('instrucciones').onsubmit = function() {
     return false;
     
 }
-//window.addEventListener("load", main);
 board_view.drawAll();
 
 window.requestAnimationFrame(controller);
-/*
-setTimeout(function () {
-    ball.direction = -1;
-}, 4000)
-*/
+
 function controller(){
     
     board_view.play();
