@@ -34,11 +34,13 @@ class BoardView{
             switch(element.kind){
                 case "rectangle":
                     ctx.fillRect(element.x, element.y, element.width, element.height);
+                    ctx.fillStyle = '#990000';
                     break;
                 case "circle":
                     ctx.beginPath();
                     ctx.arc(element.x, element.y, element.radius, 0, 7);
                     ctx.fill();
+                    ctx.fillStyle = '#990000';
                     ctx.closePath();
                     break;
             }
